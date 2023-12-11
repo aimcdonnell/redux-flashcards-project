@@ -6,8 +6,12 @@ import ROUTES from "../../app/routes";
 import { selectTopics } from "./topicsSlice";
 import { selectQuizzes } from "../quizzes/quizzesSlice";
 export default function Topic() {
+  //useSelector() takes the current state as an argument
+  //and returns whatever data you want from it
   const topics = useSelector(selectTopics);  // replace with selector
-  const quizzes = useSelector(selectQuizzes); // replace with selector
+  const quizzes = useSelector(selectQuizzes);
+  //useParams allows you to access and use params inside the component
+  //from the URL
   const { topicId } = useParams();
   const topic = topics[topicId];
 

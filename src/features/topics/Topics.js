@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ROUTES from "../../app/routes";
-// import selector
 //import the selector defined in your slice and use it to access
 //all the topics in state and replace the empty object
 //currently assigned to topics with the topics in state
 import { useSelector } from "react-redux";
 import { selectTopics } from "./topicsSlice";
 export default function Topics() {
-  //selectTopics relates to all the topics in state (state.topics.topics)
+  //selectTopics and useSelector allows you to select all the topics in state (state.topics.topics)
+  //useSelector() allows you to extract data from the Redux store state for use in this component, using a selector function
   const topics = useSelector(selectTopics); // replace this with a call to your selector to select all the topics in state
 
   return (

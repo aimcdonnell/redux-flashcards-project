@@ -9,18 +9,25 @@ import { addQuiz } from "../features/quizzes/quizzesSlice";
 import { addCard } from "../features/cards/cardsSlice";
 
 export default function NewQuizForm() {
+  //initial state is an empty string
+  //name is the current state
+  //setName is the function used to change the state
   const [name, setName] = useState("");
   const [cards, setCards] = useState([]);
   const [topicId, setTopicId] = useState("");
   const navigate = useNavigate();
   //replace the variable topics with a call to the selector selectTopics
   const topics = useSelector(selectTopics);  // Replace with topics 
+  //useDispatch returns a reference to the dispatch function
+  //useDispatch is used to dispatch functions, as needed
   const dispatch = useDispatch();
 
   //dispatch addQuiz from the handleSubmit event handler 
   const handleSubmit = (e) => {
+    //preventDefault() prevents a default event from running
     e.preventDefault();
-    if (name.length === 0) {
+    if (name.length === 0 || !topicId) {
+      alert('Please create a topic to link to the quiz first!')
       return;
     }
 
@@ -29,7 +36,7 @@ export default function NewQuizForm() {
     // create the new cards here and add each card's id to cardIds
     cards.forEach((card) => {
       //you will have to generate an id for each card using uuidv4
-      const cardId = uuidv4();
+      let cardId = uuidv4();
       //store the id you create for each card in the cardIds array
       //we've provided for you
       //your action creator expects to receive a payload of the form
@@ -44,8 +51,7 @@ export default function NewQuizForm() {
     //to create an id call the function like so uuidv4()
     const quizId = uuidv4();
 
-    // dispatch add quiz action 
-    
+    // dispatch addQuiz action 
     //the id: quizIds is required for when you click on a particular quiz that has been added; it will show the quizId
     dispatch(
       addQuiz({

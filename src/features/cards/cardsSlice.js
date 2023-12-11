@@ -13,12 +13,15 @@ initialState: {
 //{id: "123", front: "front of card", back: "back of card"}
 reducers: {
     addCard: (state, action) => {
+//you have to extract id from action.payload first
+//otherwise 'id' will be undefined
     const { id } = action.payload;
     state.cards[id] = action.payload;
 } 
 }
 })
 //has a selector that returns a card with the given id
+//the double parameters is because the outer function (id) calls the inner function (state)
 export const selectCardById = (id) => (state) => state.cards.cards[id];
 export const { addCard } = cardsSlice.actions;
 export const cardsReducer = cardsSlice.reducer;

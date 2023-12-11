@@ -9,10 +9,11 @@ import { topicsReducer } from "../features/topics/topicsSlice";
 import { quizzesReducer } from "../features/quizzes/quizzesSlice";
 //import cardsReducer and add it to the store
 import { cardsReducer } from "../features/cards/cardsSlice";
+//add the topics slice to the app's store
 export default configureStore({
   reducer: {
     topics: topicsReducer,
     quizzes: quizzesReducer,
-    cards: cardsReducer,
+    cards: cardsReducer
   },
 });
