@@ -9,3 +9,6 @@ The purpose of is project was to use Redux to create a flashcards quiz app. The 
 - React
 - Visual Studio Code
 
+## Challenges encountered
+- Getting the cards to flip
+- Connecting the topics, quizzes, and cards with each other
